@@ -10,6 +10,8 @@ def main():
         print("2. 지출 목록 보기")
         print("3. 총 지출 보기")
         print("4. 종료")
+        print("5. 파일로 내보내기")
+
         choice = input("선택 > ")
 
         if choice == "1":
@@ -31,6 +33,16 @@ def main():
         elif choice == "4":
             print("가계부를 종료합니다.")
             break
+
+        elif choice == "5":
+            if not budget.expenses:
+                print("지출이 존재하지 않습니다.")
+            else:
+                file = open ("save_expenses.txt","w")
+                for list in budget. expenses:
+                    file.write(str(list)+"\n")
+                    file.close()
+                print("지출 내역이 파일로 저장되었습니다.\n")
 
         else:
             print("잘못된 선택입니다.\n")
