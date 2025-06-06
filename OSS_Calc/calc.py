@@ -19,7 +19,7 @@ class Calculator:
             ['4', '5', '6', '*'],
             ['1', '2', '3', '-'],
             ['0', '.', 'C', '+'],
-            ['=']
+            ['=', '°C to °F', '°F to °C']
         ]
 
         for row in buttons:
@@ -42,6 +42,14 @@ class Calculator:
                 self.expression = str(eval(self.expression))
             except Exception:
                 self.expression = "에러"
+        elif char =='°C to °F':
+            cel = float(self.expression)
+            fah = (cel*(9/5))+32
+            self.expression = str(round(fah,2))
+        elif char =='°F to °C':
+            fah = float(self.expression)
+            cel = (fah-32)*(5/9)
+            self.expression = str(round(cel,2))
         else:
             self.expression += str(char)
 
