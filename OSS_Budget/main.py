@@ -1,7 +1,8 @@
 from budget import Budget
-
+import quotes
 
 def main():
+    quotes.print_quote()
     budget = Budget()
 
     while True:
